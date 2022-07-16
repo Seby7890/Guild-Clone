@@ -1,8 +1,9 @@
-public class Archer extends PlayerCharacter {
+public class Archer extends PlayerCharacter  {
     private int numberOfArrows;
+    private int level;
 
-    public Archer(String name, int age, int numberOfArrows) {
-        super(name, age);
+    public Archer(String name, int age, int currentLevel, int numberOfArrows) {
+        super(name, age, currentLevel);
         this.numberOfArrows = numberOfArrows;
     }
 
@@ -12,6 +13,14 @@ public class Archer extends PlayerCharacter {
 
     public void setNumberOfArrows(int numberOfArrows) {
         this.numberOfArrows = numberOfArrows;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     @Override
@@ -25,5 +34,12 @@ public class Archer extends PlayerCharacter {
         return "Archer{" +
                 "numberOfArrows=" + numberOfArrows +
                 '}';
+    }
+
+    @Override
+    public void levelUp() {
+        int level = getCurrentLevel() + 1;
+        setCurrentLevel(level);
+        numberOfArrows+=100;
     }
 }
