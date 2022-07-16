@@ -1,10 +1,12 @@
-public abstract class PlayerCharacter {
+public abstract class PlayerCharacter implements Playable {
     private String name;
     private int age;
+    private int currentLevel;
 
-    PlayerCharacter(String name, int age) {
+    public PlayerCharacter(String name, int age, int currentLevel) {
         this.name = name;
         this.age = age;
+        this.currentLevel = currentLevel;
     }
 
     public String getName() {
@@ -23,8 +25,12 @@ public abstract class PlayerCharacter {
         this.age = age;
     }
 
-    public void run() {
-        System.out.println("Player is running.");
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
     }
 
     public void speak() {
