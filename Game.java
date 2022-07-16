@@ -1,33 +1,24 @@
 public class Game {
     public static void main(String[] args) {
-        PlayerCharacter player1 = new PlayerCharacter("Sebi", 32) {
-            @Override
-            public void attack() {
+        Archer arrow = new Archer("Mitza", 31, 1, 50);
+        arrow.speak();
 
-            }
-        };
-        player1.speak();
-        System.out.println(player1.getName());
-        System.out.println(player1.getAge());
-        player1.setName("Oli");
-        player1.setAge(27);
-        System.out.println(player1.getName());
-        System.out.println(player1.getAge());
+        Wizard merlin = new Wizard("Ady", 31, 1, 5);
+        merlin.speak();
 
-        Archer Arrow = new Archer("Mitza", 31, 50);
-        Arrow.speak();
+        arrow.attack();
+        merlin.attack();
 
-        Wizard Merlin = new Wizard("Ady", 31, 1000);
-        Merlin.speak();
+        playerAttack(arrow);
+        playerAttack(merlin);
 
-        Arrow.attack();
-        Merlin.attack();
+        arrow.levelUp();
+        merlin.levelUp();
 
-        playerAttack(Arrow);
-        playerAttack(Merlin);
-
-        System.out.println(Arrow.toString());
-        System.out.println(Merlin.toString());
+        System.out.println("Current level of arrow is: " + arrow.getCurrentLevel());
+        System.out.println("Current number of arrows is: " + arrow.getNumberOfArrows());
+        System.out.println("Current level of merlin is: " + merlin.getCurrentLevel());
+        System.out.println("Current power is: " + merlin.getPower());
     }
 
     public static void playerAttack(PlayerCharacter playerCharacter) {
